@@ -1,0 +1,21 @@
+apiVersion: jenkins.io/v1
+kind: SourceRepository
+metadata:
+  creationTimestamp: null
+  labels:
+    owner: lejeunen-cicd-poc
+    provider: github
+    repository: jx-tutorial
+  name: lejeunen-cicd-poc-jx-tutorial
+spec:
+  description: Imported application for lejeunen-cicd-poc/jx-tutorial
+  httpCloneURL: https://github.com/lejeunen-cicd-poc/jx-tutorial.git
+  org: lejeunen-cicd-poc
+  provider: https://github.com
+  providerKind: github
+  providerName: github
+  repo: jx-tutorial
+  scheduler:
+    kind: ""
+    name: ""
+  url: https://github.com/lejeunen-cicd-poc/jx-tutorial.git
