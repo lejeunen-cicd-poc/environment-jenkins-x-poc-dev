@@ -1,0 +1,7 @@
+dependencies:
+- host: github.com
+  owner: lejeunen-cicd-poc
+  repo: jx-tutorial
+  url: https://github.com/lejeunen-cicd-poc/jx-tutorial.git
+  version: ""
+  versionURL: ""
