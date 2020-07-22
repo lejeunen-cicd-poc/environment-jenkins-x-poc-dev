@@ -1,35 +1,91 @@
+autoUpdate:
+  enabled: false
+  schedule: ""
+bootConfigURL: https://github.com/jenkins-x/jenkins-x-boot-config
 cluster:
-  clusterName: ""
-  environmentGitOwner: ""
-  environmentGitPublic: false
-  project: ""
-  provider: gke
-  zone: ""
-gitops: true
+  clusterName: jenkins-x-poc
+  devEnvApprovers:
+  - lejeunen
+  environmentGitOwner: lejeunen-cicd-poc
+  environmentGitPublic: true
+  gitKind: github
+  gitName: github
+  gitServer: https://github.com
+  namespace: jx
+  provider: eks
+  region: eu-central-1
+  registry: 840205991060.dkr.ecr.eu-central-1.amazonaws.com
 environments:
-- key: dev
-- key: staging
-- key: production
+- ingress:
+    domain: 18.157.247.212.nip.io
+    externalDNS: false
+    ignoreLoadBalancer: true
+    namespaceSubDomain: -jx.
+    tls:
+      email: ""
+      enabled: false
+      production: false
+  key: dev
+  repository: environment-jenkins-x-poc-dev
+- ingress:
+    domain: ""
+    externalDNS: false
+    namespaceSubDomain: ""
+    tls:
+      email: ""
+      enabled: false
+      production: false
+  key: staging
+  repository: environment-jenkins-x-poc-staging
+- ingress:
+    domain: ""
+    externalDNS: false
+    namespaceSubDomain: ""
+    tls:
+      email: ""
+      enabled: false
+      production: false
+  key: production
+  repository: environment-jenkins-x-poc-production
+gitops: true
 ingress:
-  domain: ""
+  domain: 18.157.247.212.nip.io
   externalDNS: false
+  ignoreLoadBalancer: true
+  namespaceSubDomain: -jx.
   tls:
     email: ""
     enabled: false
     production: false
 kaniko: true
-secretStorage: local
+repository: nexus
+secretStorage: vault
 storage:
+  backup:
+    enabled: false
+    url: ""
   logs:
-    enabled: false
-    url: ""
+    enabled: true
+    url: s3://logs-jenkins-x-poc-20200722114559999400000006
   reports:
-    enabled: false
-    url: ""
+    enabled: true
+    url: s3://reports-jenkins-x-poc-20200722114559999300000005
   repository:
-    enabled: false
-    url: ""
+    enabled: true
+    url: s3://repository-jenkins-x-poc-20200722114559999900000007
+terraform: true
+vault:
+  aws:
+    dynamoDBRegion: eu-central-1
+    dynamoDBTable: vault-unseal-jenkins-x-poc-B6fjGI6B
+    kmsKeyId: f033542c-2480-4a98-9ccd-908c2546c5d2
+    kmsRegion: eu-central-1
+    s3Bucket: vault-unseal-jenkins-x-poc-20200722114559997900000004
+    s3Region: eu-central-1
+velero:
+  schedule: ""
+  ttl: ""
 versionStream:
-  ref: "master"
+  ref: v1.0.542
   url: https://github.com/jenkins-x/jenkins-x-versions.git
 webhook: lighthouse

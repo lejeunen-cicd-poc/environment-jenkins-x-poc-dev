@@ -1,0 +1,10 @@
+adminUser:
+  password: vault:jenkins-x-poc/adminUser:password
+  username: admin
+enableDocker: false
+pipelineUser:
+  email: nicolaslejeunesprl@gmail.com
+  token: vault:jenkins-x-poc/pipelineUser:token
+  username: nlesprl
+prow:
+  hmacToken: vault:jenkins-x-poc/prow:hmacToken
