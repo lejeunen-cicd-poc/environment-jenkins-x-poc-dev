@@ -5,3 +5,9 @@ dependencies:
   url: https://github.com/lejeunen-cicd-poc/jx-tutorial.git
   version: ""
   versionURL: ""
+- host: github.com
+  owner: lejeunen-cicd-poc
+  repo: jx-spring
+  url: https://github.com/lejeunen-cicd-poc/jx-spring.git
+  version: ""
+  versionURL: ""
